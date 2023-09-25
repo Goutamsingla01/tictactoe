@@ -30,7 +30,7 @@ function checkWins(){
          const img=document.createElement('img')
          display.textContent=turn+" won";
          line.style.width="26vw"; 
-         line.style.transform=`translate( ${e[3]}vw ${e[4]}vw) rotate( ${e[5]}deg)`
+         line.style.transform=`translate( ${e[3]}vw;${e[4]}vw) rotate( ${e[5]}deg)`
          imgbox[0].style.width="15vw"
          gameover=true;
         //  reset();
