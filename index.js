@@ -23,14 +23,11 @@ function checkWins(){
         let x=boxtexts[e[0]].textContent
         let y=boxtexts[e[1]].textContent
         let z=boxtexts[e[2]].textContent
-        // console.log(x)
-        // console.log(y)
-        // console.log(z)
         if((x===y) && (y===z) && x!=''){
          const img=document.createElement('img')
          display.textContent=turn+" won";
          line.style.width="26vw"; 
-         line.style.transform=`translate( ${e[3]}vw;${e[4]}vw) rotate( ${e[5]}deg)`
+         line.style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate( ${e[5]}deg)`
          imgbox[0].style.width="15vw"
          gameover=true;
         //  reset();
@@ -41,28 +38,31 @@ function checkWins(){
 function reset(){
     Array.from(button).forEach((element)=>{
         element.children[0].textContent='';
+        element.addEventListener('click',abc)
     })  
     turn='X';
     gameover=false; 
     display.textContent='turn for '+ turn;
     document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width="0vw"
-    document.querySelector('.line').style.width=`0vw;`
+    document.querySelector('.line').style.width=`0vw`;
+}
+function abc(){
+    let boxtext=this.children[0];
+    if(boxtext.textContent===''){
+        boxtext.textContent=turn;
+        checkWins();
+        changeTurn();
+        if(!gameover){
+        display.textContent='turn for '+turn;
+        }
+        else{
+            Array.from(button).forEach((element)=>{
+                element.removeEventListener('click',abc) 
+            })
+        }
+    }
 }
 
-
 Array.from(button).forEach((element)=>{
-    let boxtext=element.children[0];
-    
-    // console.log(element.children[0].textContent);
-    element.addEventListener('click',(e)=>{
-        if(boxtext.textContent===''){
-            boxtext.textContent=turn;
-            checkWins();
-            changeTurn();
-            if(!gameover){
-            display.textContent='turn for '+turn;
-            }
-        }
-    })
-    
+    element.addEventListener('click',abc)
 })
