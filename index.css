@@ -1,3 +1,6 @@
+*{
+    font-family:'Courier New', Courier, monospace;
+}
 .btn{
     border: 2px solid black;   /*btn -border is giving border to every btn */
     /* if we give margin here box size will get smaller as we have fixed the size of grid and all btn will have to fix in that grid only */
@@ -20,13 +23,14 @@
     justify-content: center;
 }
 .gameinfo{
-    width:25%;
+    width: 26%;
     padding: 1vw 4vw;
 }
 .boxtext{
     font-size: 8vw;
 }
 .line{
+    /* display: none; */
     width: 0vw;
     height: 3px;
     background-color: rgba(56, 183, 221, 0.804);
@@ -37,6 +41,7 @@
     transition: width 1s ease-in-out;
 } 
 .imgbox img{       /* will have to select img after imgbox*/
+    /* display: none; */
     width: 0;
     transition: width 1s ease-in-out;
 }
@@ -61,10 +66,4 @@
 }
 .bb{
     border-bottom: 0;
-}
-table{
-    border: 2px solid black;
-}
-td{
-    border: 2px solid black;
 }
